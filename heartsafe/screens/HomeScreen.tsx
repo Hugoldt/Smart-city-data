@@ -68,7 +68,7 @@ const nav = useNavigation<any>();
           Localisez les défibrillateurs à Paris et consultez leurs infos.
         </Text>
         <Text style={{ fontSize: 12, color: '#94a3b8' }}>
-          Données publiques — Ville de Paris
+          Données publiques  Ville de Paris
         </Text>
       </View>
     </View>
