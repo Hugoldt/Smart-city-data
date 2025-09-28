@@ -57,9 +57,9 @@ const nav = useNavigation<any>();
         </Text>
 
         <View style={{ marginTop: 28, gap: 12, width: '100%', alignItems: 'center' }}>
-          <AppButton title="Voir la carte" />
-          <AppButton title="Signaler un problème" variant="secondary" />
-          <AppButton title="À propos" variant="ghost" />
+        <AppButton title="Voir la carte" onPress={() => nav.navigate('Map')} />
+        <AppButton title="Signaler un problème" variant="secondary" onPress={() => nav.navigate('Report')} />
+        <AppButton title="À propos" variant="ghost" onPress={() => nav.navigate('Help')} />
         </View>
       </View>
 
