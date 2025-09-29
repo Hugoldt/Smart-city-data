@@ -1,0 +1,9 @@
+[
+  { "id": "s1", "title": "Sécuriser et alerter", "text": "Évaluez le danger. Appelez 112/15/18." },
+  { "id": "s2", "title": "Vérifier la conscience", "text": "Parlez-lui, stimulez, observez." },
+  { "id": "s3", "title": "Vérifier la respiration", "text": "Si absente/anormale → commencez la RCP." },
+  { "id": "s4", "title": "RCP", "text": "30 compressions / 2 insufflations (100–120/min)." },
+  { "id": "s5", "title": "Apporter le DAE", "text": "Ouvrez-le, placez les électrodes comme indiqué." },
+  { "id": "s6", "title": "Analyse / choc", "text": "Ne touchez pas pendant l’analyse. Déclenchez si demandé." },
+  { "id": "s7", "title": "Poursuivre", "text": "Reprenez immédiatement la RCP jusqu’à l’arrivée des secours." }
+]

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { View, Text, TextInput, Pressable, StyleSheet, Platform, ToastAndroid, Alert } from "react-native"
+import { useNavigation } from '@react-navigation/native'
 
 const TYPES = ["HS","INTROUVABLE","ACCES_FERME","AUTRE"] as const
 type ReportType = typeof TYPES[number]
@@ -7,6 +8,7 @@ type ReportType = typeof TYPES[number]
 export default function ReportScreen() {
   const [type, setType] = useState<ReportType | null>(null)
   const [comment, setComment] = useState("")
+  const nav = useNavigation<any>()
   const notify = (m: string) => Platform.OS === "android" ? ToastAndroid.show(m, ToastAndroid.SHORT) : Alert.alert(m)
 
   const onSend = () => {
@@ -17,6 +19,19 @@ export default function ReportScreen() {
 
   return (
     <View style={s.container}>
+      <Pressable 
+        onPress={() => nav.goBack()}
+        style={{ 
+          backgroundColor: '#e5e7eb', 
+          padding: 12, 
+          borderRadius: 8, 
+          alignSelf: 'flex-start',
+          marginBottom: 20 
+        }}
+      >
+        <Text style={{ color: '#374151', fontWeight: '600' }}>← Retour</Text>
+      </Pressable>
+      
       <Text style={s.title}>Signalement</Text>
       <View style={s.row}>
         {TYPES.map(t => (

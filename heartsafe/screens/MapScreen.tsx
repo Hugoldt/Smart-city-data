@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet, Pressable, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
 
 type Point = { id: string; lat: number; lon: number; title?: string; address?: string };
 
 export default function MapScreen() {
   const [points, setPoints] = useState<Point[]>([]);
   const [loading, setLoading] = useState(true);
+  const nav = useNavigation<any>();
 
   useEffect(() => {
     (async () => {
@@ -50,24 +52,41 @@ export default function MapScreen() {
   }
 
   return (
-    <MapView
-      style={{ flex: 1 }}
-      initialRegion={{
-        latitude: 48.8566,
-        longitude: 2.3522,
-        latitudeDelta: 0.15,
-        longitudeDelta: 0.15,
-      }}
-    >
-      {points.map(p => (
-        <Marker
-          key={p.id}
-          coordinate={{ latitude: p.lat, longitude: p.lon }}
-          title={p.title}
-          description={p.address}
-        />
-      ))}
-    </MapView>
+    <View style={{ flex: 1 }}>
+      <Pressable 
+        onPress={() => nav.goBack()}
+        style={{ 
+          position: 'absolute',
+          top: 50,
+          left: 20,
+          zIndex: 1,
+          backgroundColor: '#e5e7eb', 
+          padding: 12, 
+          borderRadius: 8 
+        }}
+      >
+        <Text style={{ color: '#374151', fontWeight: '600' }}>← Retour</Text>
+      </Pressable>
+      
+      <MapView
+        style={{ flex: 1 }}
+        initialRegion={{
+          latitude: 48.8566,
+          longitude: 2.3522,
+          latitudeDelta: 0.15,
+          longitudeDelta: 0.15,
+        }}
+      >
+        {points.map(p => (
+          <Marker
+            key={p.id}
+            coordinate={{ latitude: p.lat, longitude: p.lon }}
+            title={p.title}
+            description={p.address}
+          />
+        ))}
+      </MapView>
+    </View>
   );
 }
 
